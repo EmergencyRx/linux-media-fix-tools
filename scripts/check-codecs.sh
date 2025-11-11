@@ -3,19 +3,13 @@ set -euo pipefail
 
 echo "[check-codecs] Checking for common media tools"
 
-missing=0
-
-for pkg in ffmpeg vlc mpv; do
-  if command -v "$pkg" >/dev/null 2>&1; then
-    echo "$pkg: found"
+for cmd in ffmpeg vlc mpv; do
+  if command -v "$cmd" >/dev/null 2>&1; then
+    echo "$cmd: found"
   else
-    echo "$pkg: not found"
-    missing=1
+    echo "$cmd: not found"
   fi
 done
 
-if [ "$missing" -ne 0 ]; then
-  echo
-  echo "One or more common media tools are missing."
-  echo "Install them using your distribution's package manager."
-fi
+echo
+echo "[info] Install missing tools using your distribution's package manager."
