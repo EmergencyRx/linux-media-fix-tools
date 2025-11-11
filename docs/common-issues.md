@@ -1,16 +1,16 @@
 # Common Linux Media Issues (Outline)
 
-1. No sound
-   - Check default sink/output device
-   - Check mute state and volume
-   - Verify PipeWire or PulseAudio services are running
+1. No audio output
+   - Check default sink/output.
+   - Check mute state and per-application volume.
+   - Ensure audio service (PulseAudio or PipeWire) is running.
 
-2. Video does not play or only audio
-   - Check for missing codecs (ffmpeg)
-   - Try alternate players (mpv, vlc)
+2. Video does not play
+   - Confirm ffmpeg and at least one capable player are installed.
+   - Test with a known good file.
 
-3. Stuttering or tearing
-   - Check GPU drivers and acceleration
-   - Verify compositor and vsync settings
+3. Stutter or tearing
+   - Verify GPU driver.
+   - Check compositor and vsync settings.
 
-Each section should be expanded with commands and expected outputs.
+Extend each section with distribution-specific commands and examples.

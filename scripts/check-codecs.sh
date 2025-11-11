@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[check-codecs] Checking for common media tools"
+echo "[check-codecs] Checking for common media tools and libraries"
 
-missing=0
-
-for pkg in ffmpeg vlc mpv; do
-  if command -v "$pkg" >/dev/null 2>&1; then
-    echo "$pkg: found"
+check_cmd() {
+  local name="$1"
+  if command -v "$name" >/dev/null 2>&1; then
+    echo "$name: found"
   else
-    echo "$pkg: not found"
-    missing=1
+    echo "$name: not found"
   fi
-done
+}
 
-if [ "$missing" -ne 0 ]; then
-  echo
-  echo "One or more common media tools are missing."
-  echo "Install them using your distribution's package manager."
-fi
+check_cmd ffmpeg
+check_cmd vlc
+check_cmd mpv
+
+echo
+echo "[info] If players are missing, install them using your distribution's package manager."
+echo "[info] This script is non-destructive and only reports presence."
